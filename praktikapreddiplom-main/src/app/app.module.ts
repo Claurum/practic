@@ -19,6 +19,7 @@ import { SidebarMainComponent } from './@theme/components/sidebar/sidebar.compon
 import { NewsComponent } from './pages/sections/news/news.component';
 import { AddNewsComponent } from './pages/sections/add-news/add-news.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminsComponent } from './pages/admins/admins.component';
 
 
 
@@ -35,13 +36,14 @@ import { HttpClientModule } from '@angular/common/http';
     MainPageComponent,
     NewsComponent,
     AddNewsComponent,
+    AdminsComponent,
 
 
 
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule
     AppRoutingModule,
     SharedModule
   ],
