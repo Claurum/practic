@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'administration',
-         loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
+          loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
       },
       {
         path: 'mainPage/project',

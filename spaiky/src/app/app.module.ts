@@ -18,6 +18,7 @@ import { SharedModule } from '../app/domains/modules/shared/shared.module';
 import { SidebarMainComponent } from './@theme/components/sidebar/sidebar.component';
 import { NewsComponent } from './pages/sections/news/news.component';
 import { AddNewsComponent } from './pages/sections/add-news/add-news.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -40,6 +41,7 @@ import { AddNewsComponent } from './pages/sections/add-news/add-news.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule
     AppRoutingModule,
     SharedModule
   ],
