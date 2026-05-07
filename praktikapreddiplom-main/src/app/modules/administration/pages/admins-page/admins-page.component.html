@@ -1,4 +1,33 @@
 <div class="admins-page">
   <h2>Админы</h2>
-  <p>Здесь будет список администраторов и управление ими.</p>
+
+  <div class="controls">
+    <button (click)="refresh()">Обновить</button>
+  </div>
+
+  <div *ngIf="loading">Загрузка админов...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!loading && admins.length > 0" class="admins-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Активен</th>
+        <th>Дата рождения</th>
+        <th>Создан</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of admins">
+        <td>{{ a.admin_id }}</td>
+        <td>{{ a.admin_login }}</td>
+        <td>{{ a.is_active_admin ? 'Да' : 'Нет' }}</td>
+        <td>{{ a.admin_birth_date || '-' }}</td>
+        <td>{{ a.created_at }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && admins.length === 0">Админы не найдены.</div>
 </div>
