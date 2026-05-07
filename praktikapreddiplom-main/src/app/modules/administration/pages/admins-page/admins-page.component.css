@@ -1,3 +1,62 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .admins-page {
-  padding: 16px;
+  width: 100%;
+}
+
+.admins-page > h2 {
+  width: 100%;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--block-background);
+  border: 1px solid var(--block-border-color);
+  font-size: 28px;
+  color: var(--color-indigo-500);
+}
+
+.controls {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.controls > button {
+  font-size: 14px;
+  padding: 7px;
+  border-radius: 7px;
+  outline: none;
+  background-color: var(--block-child-background);
+  border: 1px solid var(--block-child-border-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.admins-table {
+  width: 100%;
+  background-color: var(--block-background);
+  border: 1px solid var(--block-border-color);
+  border-collapse: collapse;
+}
+
+.admins-table thead th {
+  background-color: var(--block-background);
+  padding: 10px;
+  font-size: 17px;
+}
+
+.admins-table td {
+  background-color: var(--block-child-background);
+  padding: 10px;
+  text-align: center;
+}
+
+.admins-page .error {
+  color: var(--color-red-500);
+  padding: 8px 0 0 1rem;
 }
