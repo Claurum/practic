@@ -4,7 +4,6 @@ import { MainPageComponent } from './sections/main-page/main-page.component';
 import { PagesComponent } from './pages.component';
 import { RizhiComponentComponent } from '../modules/administration/pages/users-page/component/rizhi-component/rizhi-component.component';
 import { NewsComponent } from './sections/news/news.component';
-import { AdminsComponent } from 'src/app/pages/sections/admins/admins.component'; 
 
 const routes: Routes = [
   {
@@ -17,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'administration',
-          loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
+         loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
       },
       {
         path: 'mainPage/project',
@@ -27,10 +26,7 @@ const routes: Routes = [
         path: 'mainPage/news',
         component: NewsComponent
       },
-      {
-        path: 'admins',                  
-        component: AdminsComponent        
-      },
+
       {
         path: '',
         redirectTo: 'mainPage',
