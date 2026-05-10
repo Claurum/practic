@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +19,6 @@ import { SharedModule } from '../app/domains/modules/shared/shared.module';
 import { SidebarMainComponent } from './@theme/components/sidebar/sidebar.component';
 import { NewsComponent } from './pages/sections/news/news.component';
 import { AddNewsComponent } from './pages/sections/add-news/add-news.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AdminsComponent } from './pages/admins/admins.component';
 
 
 
@@ -36,14 +35,13 @@ import { AdminsComponent } from './pages/admins/admins.component';
     MainPageComponent,
     NewsComponent,
     AddNewsComponent,
-    AdminsComponent,
 
 
 
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
     AppRoutingModule,
     SharedModule
   ],
