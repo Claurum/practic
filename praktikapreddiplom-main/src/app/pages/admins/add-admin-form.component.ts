@@ -13,7 +13,7 @@ import { AdminService } from '../../domains/services/admin.service';
             <input type="checkbox" [(ngModel)]="admin.is_active_admin"> Активен
         </label>
         <input [(ngModel)]="admin.admin_birth_date" placeholder="Дата рождения (ГГГГ-ММ-ДД)">
-        <button type="submit">Сохранить</button>
+        <button type="submit">Добавить</button>
         <button type="button" (click)="onClose()">Отмена</button>
         </form>
     </div>
@@ -32,17 +32,18 @@ export class AddAdminFormComponent {
     admin_birth_date: ''
     };
 
-    @Output() adminCreated = new EventEmitter<void>();
+    @Output() adminCreated = new EventEmitter<any>();
     @Output() close = new EventEmitter<void>();
 
     constructor(private adminService: AdminService) {}
 
     onSubmit(): void {
     this.adminService.createAdmin(this.admin).subscribe({
-        next: () => {
-        this.adminCreated.emit();
+        next: (response) => {
+        const newAdmin = response.admin || response;
+        this.adminCreated.emit(newAdmin);
         },
-        error: (err) => console.error(err)
+        error: (err) => console.error('Ошибка при создании:', err)
     });
     }
 

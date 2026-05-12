@@ -11,8 +11,7 @@ export class AdminsComponent implements OnInit {
   admins: Admin[] = [];
   loading = true;
   error = '';
-  showForm = false;
-  selectedAdmin: Admin | null = null;
+  showAddForm = false;
 
   constructor(private adminService: AdminService) { }
 
@@ -36,17 +35,15 @@ export class AdminsComponent implements OnInit {
   }
 
   onAddAdmin(): void {
-    this.showForm = true;
-    this.selectedAdmin = null;
+    this.showAddForm = true;
+  }
+
+  onAdminCreated(newAdmin: Admin): void {
+    this.admins = [newAdmin, ...this.admins];
+    this.showAddForm = false;
   }
 
   onAdminSelect(admin: Admin): void {
-    this.selectedAdmin = admin;
-    this.showForm = true; // или открыть форму редактирования
-  }
-
-  onAdminCreated(): void {
-    this.showForm = false;
-    this.loadAdmins(); // обновить список
+    console.log('Выбран админ:', admin);
   }
 }

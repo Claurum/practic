@@ -1,21 +1,25 @@
-<div class="admins-page__header">
+<div class="admins-page">
+    <div class="admins-page__header">
     <p>Администраторы</p>
     <button (click)="onAddAdmin()">Добавить администратора</button>
-</div>
-
-<div class="admins-page__content">
-    <div class="admins-page__table-wrapper">
-    <app-table
-        [columnHeaders]="['id', 'Логин', 'Активен', 'Дата рождения', 'Создан']"
-        [data]="admins"
-        (rowClick)="onAdminSelect($event)">
-    </app-table>
     </div>
 
-  <aside class="admins-page__aside" *ngIf="showForm">
-    <app-add-admin-form 
-        (adminCreated)="onAdminCreated()"
-        (close)="showForm = false">
-    </app-add-admin-form>
+    <div class="admins-page__content">
+
+    <div class="admins-page__table-wrapper">
+        <app-table
+        [columnHeaders]="['id', 'Логин', 'Активность', 'Дата рождения', 'Дата регистрации', 'Действия']"
+        [data]="admins"
+        (rowClick)="onAdminSelect($event)">
+        </app-table>
+    </div>
+
+
+    <aside class="admins-page__aside" *ngIf="showAddForm">
+        <app-add-admin-form
+        (adminCreated)="onAdminCreated($event)"
+        (close)="showAddForm = false">
+        </app-add-admin-form>
     </aside>
+    </div>
 </div>
