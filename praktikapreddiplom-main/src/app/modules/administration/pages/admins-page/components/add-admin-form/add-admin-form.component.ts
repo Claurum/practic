@@ -23,7 +23,7 @@ export class AddAdminFormComponent implements OnInit {
     this.addAdminForm = new FormGroup({
       admin_login: new FormControl('', [Validators.required, Validators.minLength(2)]),
       admin_password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      is_active_admin: new FormControl(true)
+      is_active_admin: new FormControl(false)
     });
   }
 
@@ -39,7 +39,7 @@ export class AddAdminFormComponent implements OnInit {
       is_active_admin: this.addAdminForm.get('is_active_admin')?.value
     }).subscribe({
       next: () => {
-        this.addAdminForm.reset({ is_active_admin: true });
+        this.addAdminForm.reset({ is_active_admin: false });
         this.adminAdded.emit();
       }
     });
