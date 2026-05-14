@@ -17,6 +17,7 @@
     <app-edit-admin-form
       *ngIf="asideIndex == 2"
       [selectedAdmin]="selectedAdmin"
-      (adminUpdated)="onAdminUpdated($event)" />
+      (adminUpdated)="onAdminUpdated($event)"
+      (adminDeleted)="onAdminDeleted($event)" />
   </aside>
 </div>

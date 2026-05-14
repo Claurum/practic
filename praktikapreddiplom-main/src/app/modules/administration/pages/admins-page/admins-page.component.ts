@@ -58,4 +58,10 @@ export class AdminsPageComponent implements OnInit {
     }
     this.loadAdmins();
   }
+
+  onAdminDeleted(adminId: number) {
+    this.admins = this.admins.filter(a => a.admin_id !== adminId);
+    this.asideIndex = 1;
+    this.selectedAdmin = null;
+  }
 }
