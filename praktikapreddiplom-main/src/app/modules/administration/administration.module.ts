@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../../domains/modules/shared/shared.module";
 import { EditUserComponent } from "./pages/users-page/components/edit-user/edit-user.component";
 import { AddAdminFormComponent } from "./pages/admins-page/components/add-admin-form/add-admin-form.component";
+import { EditAdminFormComponent } from "./pages/admins-page/components/edit-admin-form/edit-admin-form.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AddAdminFormComponent } from "./pages/admins-page/components/add-admin-
     AddUserFormComponent,
     EditUserComponent,
     AddAdminFormComponent,
+    EditAdminFormComponent,
   ],
 
   imports: [
