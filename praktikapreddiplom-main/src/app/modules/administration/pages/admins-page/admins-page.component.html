@@ -7,11 +7,16 @@
   <div class="users-page__table-wrapper">
     <app-table
       [columnHeaders]="['ID', 'Имя', 'Активен', 'Дата рождения', 'Дата создания']"
-      [data]="tableData">
+      [data]="tableData"
+      (rowClick)="onAdminSelect($event)">
     </app-table>
   </div>
 
   <aside class="users-page__aside">
     <app-add-admin-form *ngIf="asideIndex == 1" (adminAdded)="onAdminAdded()" />
+    <app-edit-admin-form
+      *ngIf="asideIndex == 2"
+      [selectedAdmin]="selectedAdmin"
+      (adminUpdated)="onAdminUpdated($event)" />
   </aside>
 </div>

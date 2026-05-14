@@ -8,9 +8,10 @@ import { AdminService } from '../../../../domains/services/admin.service';
   styleUrls: ['./admins-page.component.css']
 })
 export class AdminsPageComponent implements OnInit {
-  // 0 - скрыть | 1 - добавить админа
+  // 0 - скрыть | 1 - добавить админа | 2 - редактировать админа
   asideIndex: number = 1;
   admins: Admin[] = [];
+  selectedAdmin: Admin | null = null;
 
   constructor(private adminService: AdminService) {}
 
@@ -19,7 +20,7 @@ export class AdminsPageComponent implements OnInit {
   }
 
   loadAdmins() {
-    this.adminService.getAdmins().subscribe({
+    this.adminService.getAdmins(true).subscribe({
       next: (res) => {
         this.admins = res.admins;
       }
@@ -38,9 +39,23 @@ export class AdminsPageComponent implements OnInit {
 
   onAddAdminBtn() {
     this.asideIndex = 1;
+    this.selectedAdmin = null;
+  }
+
+  onAdminSelect(rowData: any) {
+    this.asideIndex = 2;
+    this.selectedAdmin = this.admins.find(a => a.admin_id === rowData.admin_id) || null;
   }
 
   onAdminAdded() {
+    this.loadAdmins();
+  }
+
+  onAdminUpdated(data: { admin_id: number; updates: any }) {
+    const admin = this.admins.find(a => a.admin_id === data.admin_id);
+    if (admin) {
+      Object.assign(admin, data.updates);
+    }
     this.loadAdmins();
   }
 }
