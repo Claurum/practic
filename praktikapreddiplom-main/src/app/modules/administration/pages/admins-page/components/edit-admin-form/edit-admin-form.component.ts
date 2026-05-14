@@ -11,6 +11,7 @@ import { AdminService } from '../../../../../../domains/services/admin.service';
 export class EditAdminFormComponent implements OnInit, OnChanges {
   @Input() selectedAdmin: Admin | null = null;
   @Output() adminUpdated = new EventEmitter<{ admin_id: number; updates: any }>();
+  @Output() adminDeleted = new EventEmitter<number>();
 
   editAdminForm: FormGroup;
 
@@ -61,6 +62,17 @@ export class EditAdminFormComponent implements OnInit, OnChanges {
         }
       });
     }
+  }
+
+  onDelete() {
+    if (!this.selectedAdmin) return;
+    if (!confirm('Удалить админа ' + this.selectedAdmin.admin_login + '?')) return;
+    const adminId = this.selectedAdmin.admin_id;
+    this.adminService.deleteAdmin(adminId, true).subscribe({
+      next: () => {
+        this.adminDeleted.emit(adminId);
+      }
+    });
   }
 
   formatDate(date: string | null | undefined): string {

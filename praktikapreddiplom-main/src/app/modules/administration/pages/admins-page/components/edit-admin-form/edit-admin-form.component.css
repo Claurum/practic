@@ -46,3 +46,9 @@ header {
     cursor: pointer;
     color: var(--text-color);
   }
+
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+  }
